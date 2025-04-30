@@ -8,7 +8,7 @@ pipeline {
       }
       stage('Chekout SCM'){
            steps {
-               sh 'git branch: 'main', credentialsId: 'id-user-github', url: 'https://github.com/medsrc/projet-dev01.git'
+               git branch: 'main', credentialsId: 'id-user-github', url: 'https://github.com/medsrc/projet-dev01.git'
            }  
       }
       stage('Build image docker'){
