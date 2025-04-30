@@ -16,9 +16,10 @@ pipeline {
              script {
                sh 'docker build -t myimage_nginx .'
                sh 'docker tag  myimage_nginx med:myimage_nginx' 
-            } 
+               } 
      
            }  
+      }
    
        stage('Deploiement application'){
            steps {
@@ -27,8 +28,7 @@ pipeline {
                sh 'docker rm -f $(docker ps -a)'
                sh 'docker run -d --name monapp --hostname monapp -p 8099:80 myimage_nginx' 
              } 
-        
-          }      
+           
       }       
    }
  }
